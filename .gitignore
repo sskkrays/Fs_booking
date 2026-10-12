@@ -11,3 +11,11 @@ venv/
 *.swp
 .DS_Store
 Thumbs.db
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Тестовые файлы
+check.py
+report_*.pdf

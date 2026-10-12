@@ -11,7 +11,7 @@ import hashlib
 import os
 import sys
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from decimal import Decimal, ROUND_HALF_UP
 
 from PyQt5.QtCore import Qt, QDateTime
@@ -171,7 +171,31 @@ def verify_password(password: str, stored: str) -> bool:
 # =====================================================================
 
 Base = declarative_base()
-engine = create_engine("sqlite:///fs_booking.db", echo=False, future=True)
+
+
+def _get_db_path() -> str:
+    """
+    Возвращает абсолютный путь к файлу базы данных.
+
+    Логика:
+    - Если приложение запущено из exe (PyInstaller) — база кладётся рядом с exe.
+    - Если из исходников (python fs_booking.py) — рядом с файлом fs_booking.py.
+    """
+    import sys
+    from pathlib import Path
+
+    if getattr(sys, "frozen", False):
+        # Запуск из exe (PyInstaller)
+        base_dir = Path(sys.executable).parent
+    else:
+        # Запуск из исходников
+        base_dir = Path(__file__).resolve().parent
+
+    return str(base_dir / "fs_booking.db")
+
+
+_db_path = _get_db_path()
+engine = create_engine(f"sqlite:///{_db_path}", echo=False, future=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, future=True)
 
 
@@ -1840,7 +1864,7 @@ class ReportsView(QWidget):
         from reportlab.pdfgen import canvas
         from reportlab.pdfbase import pdfmetrics
         from reportlab.pdfbase.ttfonts import TTFont
-        from datetime import datetime, timedelta
+        from datetime import datetime as _dt
         from PyQt5.QtWidgets import QFileDialog
 
         # Спросить у пользователя, куда сохранить
