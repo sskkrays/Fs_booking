@@ -19,3 +19,10 @@ dist/
 # Тестовые файлы
 check.py
 report_*.pdf
+docs/_build/
+# Отчёты и резервные копии
+*.bak
+*.tmp
+
+# Логи
+*.log
