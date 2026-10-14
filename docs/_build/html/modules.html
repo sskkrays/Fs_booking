@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API-документация &#8212; документация Fs_Booking 1.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=9ca2116e"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bfe3ffa"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="Руководство разработчика" href="developer_manual.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-fs_booking">
+<span id="api"></span><h1>API-документация<a class="headerlink" href="#module-fs_booking" title="Ссылка на этот заголовок">¶</a></h1>
+<p>FS.Booking — приложение для бронирования залов.
+Демонстрирует: Clean Code, MVC, SQLAlchemy ORM, PyQt5 UI, docstrings, тесты.</p>
+<p>Запуск: python fs_booking.py</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.AdminProfileView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">AdminProfileView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#AdminProfileView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.AdminProfileView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Профиль администратора (Figma: „Мой профиль (администратор)“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.AdminProfileView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#AdminProfileView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.AdminProfileView.refresh" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет данные панели администратора (профиль, выручка, часы).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.AdminProfileView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#AdminProfileView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.AdminProfileView.showEvent" title="Link to this definition">¶</a></dt>
+<dd><p>При показе — обновить данные.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.BookingDialog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">BookingDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingDialog"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingDialog" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QDialog</span></code></p>
+<p>Диалог создания брони.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.BookingEquipmentORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">BookingEquipmentORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingEquipmentORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingEquipmentORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Связь брони и оборудования (M:N).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingEquipmentORM.booking_equipment_id">
+<span class="sig-name descname"><span class="pre">booking_equipment_id</span></span><a class="headerlink" href="#fs_booking.BookingEquipmentORM.booking_equipment_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingEquipmentORM.booking_id">
+<span class="sig-name descname"><span class="pre">booking_id</span></span><a class="headerlink" href="#fs_booking.BookingEquipmentORM.booking_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingEquipmentORM.equipment_id">
+<span class="sig-name descname"><span class="pre">equipment_id</span></span><a class="headerlink" href="#fs_booking.BookingEquipmentORM.equipment_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingEquipmentORM.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#fs_booking.BookingEquipmentORM.quantity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.BookingORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">BookingORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Бронирование зала.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.booking_id">
+<span class="sig-name descname"><span class="pre">booking_id</span></span><a class="headerlink" href="#fs_booking.BookingORM.booking_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.client">
+<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#fs_booking.BookingORM.client" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.client_id">
+<span class="sig-name descname"><span class="pre">client_id</span></span><a class="headerlink" href="#fs_booking.BookingORM.client_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.end_datetime">
+<span class="sig-name descname"><span class="pre">end_datetime</span></span><a class="headerlink" href="#fs_booking.BookingORM.end_datetime" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.hall">
+<span class="sig-name descname"><span class="pre">hall</span></span><a class="headerlink" href="#fs_booking.BookingORM.hall" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.hall_id">
+<span class="sig-name descname"><span class="pre">hall_id</span></span><a class="headerlink" href="#fs_booking.BookingORM.hall_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.start_datetime">
+<span class="sig-name descname"><span class="pre">start_datetime</span></span><a class="headerlink" href="#fs_booking.BookingORM.start_datetime" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#fs_booking.BookingORM.status" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.status_id">
+<span class="sig-name descname"><span class="pre">status_id</span></span><a class="headerlink" href="#fs_booking.BookingORM.status_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.total_price">
+<span class="sig-name descname"><span class="pre">total_price</span></span><a class="headerlink" href="#fs_booking.BookingORM.total_price" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.BookingORM.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#fs_booking.BookingORM.user_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">BookingRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для броней + агрегация для отчётов.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hall_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equipment_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.BookingORM" title="fs_booking.BookingORM"><span class="pre">BookingORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">booking_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.delete" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.BookingORM" title="fs_booking.BookingORM"><span class="pre">BookingORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает все брони с подгрузкой связанных объектов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.list_by_date">
+<span class="sig-name descname"><span class="pre">list_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.BookingORM" title="fs_booking.BookingORM"><span class="pre">BookingORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.list_by_date"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.list_by_date" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает брони за указанный день с подгрузкой связанных объектов.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.list_by_user">
+<span class="sig-name descname"><span class="pre">list_by_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.BookingORM" title="fs_booking.BookingORM"><span class="pre">BookingORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.list_by_user"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.list_by_user" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает только брони, созданные указанным пользователем.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.revenue_report">
+<span class="sig-name descname"><span class="pre">revenue_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.revenue_report"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.revenue_report" title="Link to this definition">¶</a></dt>
+<dd><p>KPI + разбивка выручки по залам.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingRepository.update_status">
+<span class="sig-name descname"><span class="pre">update_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">booking_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#BookingRepository.update_status"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingRepository.update_status" title="Link to this definition">¶</a></dt>
+<dd><p>Меняет статус брони по ID. Возвращает True, если бронь найдена.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.BookingView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">BookingView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Список броней + создание/удаление (Figma: „Брони“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingView.refresh" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет список броней — все для админа, только свои для клиента.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.BookingView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QShowEvent</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#BookingView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.BookingView.showEvent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.CalendarView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">CalendarView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#CalendarView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.CalendarView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Календарь броней (Figma: „Дашборд/Календарь“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.CalendarView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#CalendarView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.CalendarView.refresh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.CalendarView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QShowEvent</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#CalendarView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.CalendarView.showEvent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ClientORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ClientORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Клиент.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.ClientORM.client_id">
+<span class="sig-name descname"><span class="pre">client_id</span></span><a class="headerlink" href="#fs_booking.ClientORM.client_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.ClientORM.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#fs_booking.ClientORM.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.ClientORM.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#fs_booking.ClientORM.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.ClientORM.notes">
+<span class="sig-name descname"><span class="pre">notes</span></span><a class="headerlink" href="#fs_booking.ClientORM.notes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.ClientORM.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#fs_booking.ClientORM.phone" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ClientProfileView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ClientProfileView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientProfileView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientProfileView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Профиль клиента (Figma: „Мой профиль (клиент)“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientProfileView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientProfileView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientProfileView.refresh" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет личные данные и список своих броней.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientProfileView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientProfileView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientProfileView.showEvent" title="Link to this definition">¶</a></dt>
+<dd><p>При показе экрана — обновляет данные.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ClientRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для клиентов. Все запросы — через ORM, SQL-инъекции невозможны.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.ClientORM" title="fs_booking.ClientORM"><span class="pre">ClientORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository.create" title="Link to this definition">¶</a></dt>
+<dd><p>Создаёт клиента.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository.delete" title="Link to this definition">¶</a></dt>
+<dd><p>Удаляет клиента. Возвращает True, если удалён.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.ClientORM" title="fs_booking.ClientORM"><span class="pre">ClientORM</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository.get"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository.get" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает клиента по ID.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.ClientORM" title="fs_booking.ClientORM"><span class="pre">ClientORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает список клиентов с регистронезависимым поиском по имени (Python-фильтр).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientRepository.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.ClientORM" title="fs_booking.ClientORM"><span class="pre">ClientORM</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/fs_booking.html#ClientRepository.update"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientRepository.update" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет разрешённые поля клиента.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ClientsView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ClientsView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientsView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientsView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>CRUD клиентов (Figma: „Клиенты“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientsView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientsView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientsView.refresh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ClientsView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QShowEvent</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ClientsView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ClientsView.showEvent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fs_booking.DomainError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">DomainError</span></span><a class="reference internal" href="_modules/fs_booking.html#DomainError"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.DomainError" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Базовое доменное исключение.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">EquipmentORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#EquipmentORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Оборудование.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#fs_booking.EquipmentORM.category" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM.equipment_id">
+<span class="sig-name descname"><span class="pre">equipment_id</span></span><a class="headerlink" href="#fs_booking.EquipmentORM.equipment_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM.is_available">
+<span class="sig-name descname"><span class="pre">is_available</span></span><a class="headerlink" href="#fs_booking.EquipmentORM.is_available" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#fs_booking.EquipmentORM.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.EquipmentORM.price_per_day">
+<span class="sig-name descname"><span class="pre">price_per_day</span></span><a class="headerlink" href="#fs_booking.EquipmentORM.price_per_day" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.EquipmentRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">EquipmentRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#EquipmentRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для оборудования.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.EquipmentRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price_per_day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.EquipmentORM" title="fs_booking.EquipmentORM"><span class="pre">EquipmentORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#EquipmentRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentRepository.create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.EquipmentRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">equipment_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#EquipmentRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentRepository.delete" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.EquipmentRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.EquipmentORM" title="fs_booking.EquipmentORM"><span class="pre">EquipmentORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#EquipmentRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.EquipmentRepository.toggle_available">
+<span class="sig-name descname"><span class="pre">toggle_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">equipment_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#EquipmentRepository.toggle_available"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.EquipmentRepository.toggle_available" title="Link to this definition">¶</a></dt>
+<dd><p>Переключает доступность оборудования на противоположную.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>equipment_id</strong> – ID оборудования.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True, если оборудование найдено и обновлено.
+False, если оборудования с таким ID нет.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ForgotView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ForgotView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ForgotView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ForgotView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Форма восстановления пароля (Figma: „Забыли пароль“).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.HallORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">HallORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#HallORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.HallORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Зал для аренды.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.HallORM.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#fs_booking.HallORM.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.HallORM.hall_id">
+<span class="sig-name descname"><span class="pre">hall_id</span></span><a class="headerlink" href="#fs_booking.HallORM.hall_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.HallORM.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#fs_booking.HallORM.is_active" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.HallORM.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#fs_booking.HallORM.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.HallORM.price_per_hour">
+<span class="sig-name descname"><span class="pre">price_per_hour</span></span><a class="headerlink" href="#fs_booking.HallORM.price_per_hour" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.HallRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">HallRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#HallRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.HallRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для залов.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.HallRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price_per_hour</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.HallORM" title="fs_booking.HallORM"><span class="pre">HallORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#HallRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.HallRepository.create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.HallRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hall_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#HallRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.HallRepository.delete" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.HallRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">only_active</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.HallORM" title="fs_booking.HallORM"><span class="pre">HallORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#HallRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.HallRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fs_booking.InvalidBookingPeriodError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">InvalidBookingPeriodError</span></span><a class="reference internal" href="_modules/fs_booking.html#InvalidBookingPeriodError"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.InvalidBookingPeriodError" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#fs_booking.DomainError" title="fs_booking.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<p>Окончание брони раньше начала.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.LoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">LoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#LoginView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.LoginView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Форма входа (Figma: „Авторизация“).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.MainWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">MainWindow</span></span><a class="reference internal" href="_modules/fs_booking.html#MainWindow"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<p>Главное окно приложения с навигацией через QStackedWidget.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.logout">
+<span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.logout"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.logout" title="Link to this definition">¶</a></dt>
+<dd><p>Выходит из системы и возвращает на экран входа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_dashboard">
+<span class="sig-name descname"><span class="pre">show_dashboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_dashboard"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_dashboard" title="Link to this definition">¶</a></dt>
+<dd><p>Открывает дашборд в зависимости от роли.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_error">
+<span class="sig-name descname"><span class="pre">show_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_error"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_error" title="Link to this definition">¶</a></dt>
+<dd><p>Показывает диалог ошибки.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_forgot">
+<span class="sig-name descname"><span class="pre">show_forgot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_forgot"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_forgot" title="Link to this definition">¶</a></dt>
+<dd><p>Показывает экран восстановления пароля.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_info">
+<span class="sig-name descname"><span class="pre">show_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_info"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_info" title="Link to this definition">¶</a></dt>
+<dd><p>Показывает диалог с информацией.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_login">
+<span class="sig-name descname"><span class="pre">show_login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_login"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_login" title="Link to this definition">¶</a></dt>
+<dd><p>Показывает экран входа.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_register">
+<span class="sig-name descname"><span class="pre">show_register</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_register"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_register" title="Link to this definition">¶</a></dt>
+<dd><p>Показывает экран регистрации.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.MainWindow.show_view">
+<span class="sig-name descname"><span class="pre">show_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QWidget</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#MainWindow.show_view"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.MainWindow.show_view" title="Link to this definition">¶</a></dt>
+<dd><p>Переключает активный экран.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">PaymentORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#PaymentORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.PaymentORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Платёж по брони.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM.amount">
+<span class="sig-name descname"><span class="pre">amount</span></span><a class="headerlink" href="#fs_booking.PaymentORM.amount" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM.booking_id">
+<span class="sig-name descname"><span class="pre">booking_id</span></span><a class="headerlink" href="#fs_booking.PaymentORM.booking_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM.payment_date">
+<span class="sig-name descname"><span class="pre">payment_date</span></span><a class="headerlink" href="#fs_booking.PaymentORM.payment_date" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM.payment_id">
+<span class="sig-name descname"><span class="pre">payment_id</span></span><a class="headerlink" href="#fs_booking.PaymentORM.payment_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.PaymentORM.payment_method">
+<span class="sig-name descname"><span class="pre">payment_method</span></span><a class="headerlink" href="#fs_booking.PaymentORM.payment_method" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ReferenceView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ReferenceView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_toggle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReferenceView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReferenceView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Универсальный CRUD-экран для справочников.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ReferenceView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReferenceView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReferenceView.refresh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ReferenceView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QShowEvent</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReferenceView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReferenceView.showEvent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ReferencesHubView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ReferencesHubView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReferencesHubView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReferencesHubView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Объединённый справочник с вкладками: Залы, Оборудование, Статус, Пользователи.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ReferencesHubView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReferencesHubView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReferencesHubView.showEvent" title="Link to this definition">¶</a></dt>
+<dd><p>Обновляет данные при показе.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.RegisterView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">RegisterView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#RegisterView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.RegisterView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Форма регистрации (Figma: „Регистрация“).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.ReportsView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ReportsView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReportsView"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReportsView" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Отчёты (Figma: „Отчёты“).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ReportsView.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReportsView.refresh"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReportsView.refresh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.ReportsView.showEvent">
+<span class="sig-name descname"><span class="pre">showEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QShowEvent</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#ReportsView.showEvent"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ReportsView.showEvent" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.RoleORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">RoleORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#RoleORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.RoleORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Роль пользователя.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.RoleORM.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#fs_booking.RoleORM.description" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.RoleORM.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#fs_booking.RoleORM.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.RoleORM.role_id">
+<span class="sig-name descname"><span class="pre">role_id</span></span><a class="headerlink" href="#fs_booking.RoleORM.role_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.StatusORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">StatusORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#StatusORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.StatusORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Статус брони.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.StatusORM.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#fs_booking.StatusORM.name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.StatusORM.status_id">
+<span class="sig-name descname"><span class="pre">status_id</span></span><a class="headerlink" href="#fs_booking.StatusORM.status_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.StatusRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">StatusRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#StatusRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.StatusRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для статусов.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.StatusRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.StatusORM" title="fs_booking.StatusORM"><span class="pre">StatusORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#StatusRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.StatusRepository.create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.StatusRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.StatusORM" title="fs_booking.StatusORM"><span class="pre">StatusORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#StatusRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.StatusRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.TaskORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">TaskORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#TaskORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.TaskORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Задача/напоминание для панели администратора.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.TaskORM.is_done">
+<span class="sig-name descname"><span class="pre">is_done</span></span><a class="headerlink" href="#fs_booking.TaskORM.is_done" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.TaskORM.task_id">
+<span class="sig-name descname"><span class="pre">task_id</span></span><a class="headerlink" href="#fs_booking.TaskORM.task_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.TaskORM.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#fs_booking.TaskORM.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.TaskRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">TaskRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#TaskRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.TaskRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для задач в блоке „Ожидания решений“.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.TaskRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.TaskORM" title="fs_booking.TaskORM"><span class="pre">TaskORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#TaskRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.TaskRepository.create" title="Link to this definition">¶</a></dt>
+<dd><p>Создаёт новую задачу.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.TaskRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#TaskRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.TaskRepository.delete" title="Link to this definition">¶</a></dt>
+<dd><p>Удаляет задачу по ID.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.TaskRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.TaskORM" title="fs_booking.TaskORM"><span class="pre">TaskORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#TaskRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.TaskRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает все задачи в порядке добавления.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.UserORM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">UserORM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#UserORM"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserORM" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></p>
+<p>Пользователь системы.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.full_name">
+<span class="sig-name descname"><span class="pre">full_name</span></span><a class="headerlink" href="#fs_booking.UserORM.full_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.login">
+<span class="sig-name descname"><span class="pre">login</span></span><a class="headerlink" href="#fs_booking.UserORM.login" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.password_hash">
+<span class="sig-name descname"><span class="pre">password_hash</span></span><a class="headerlink" href="#fs_booking.UserORM.password_hash" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.role">
+<span class="sig-name descname"><span class="pre">role</span></span><a class="headerlink" href="#fs_booking.UserORM.role" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.role_id">
+<span class="sig-name descname"><span class="pre">role_id</span></span><a class="headerlink" href="#fs_booking.UserORM.role_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fs_booking.UserORM.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#fs_booking.UserORM.user_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fs_booking.UserRepository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">UserRepository</span></span><a class="reference internal" href="_modules/fs_booking.html#UserRepository"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserRepository" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CRUD для пользователей.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.UserRepository.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">login</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password_hash</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.UserORM" title="fs_booking.UserORM"><span class="pre">UserORM</span></a></span></span><a class="reference internal" href="_modules/fs_booking.html#UserRepository.create"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserRepository.create" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.UserRepository.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#UserRepository.delete"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserRepository.delete" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.UserRepository.get_by_login">
+<span class="sig-name descname"><span class="pre">get_by_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">login</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fs_booking.UserORM" title="fs_booking.UserORM"><span class="pre">UserORM</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/fs_booking.html#UserRepository.get_by_login"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserRepository.get_by_login" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает пользователя по логину, сразу подгружая роль.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fs_booking.UserRepository.list_all">
+<span class="sig-name descname"><span class="pre">list_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#fs_booking.UserORM" title="fs_booking.UserORM"><span class="pre">UserORM</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/fs_booking.html#UserRepository.list_all"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.UserRepository.list_all" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает всех пользователей с подгрузкой роли.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fs_booking.ValidationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">ValidationError</span></span><a class="reference internal" href="_modules/fs_booking.html#ValidationError"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.ValidationError" title="Link to this definition">¶</a></dt>
+<dd><p>Базовые классы: <a class="reference internal" href="#fs_booking.DomainError" title="fs_booking.DomainError"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainError</span></code></a></p>
+<p>Некорректные входные данные.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.build_header">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">build_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QLabel</span></span></span><a class="reference internal" href="_modules/fs_booking.html#build_header"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.build_header" title="Link to this definition">¶</a></dt>
+<dd><p>Строит заголовок экрана.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.build_sidebar">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">build_sidebar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QFrame</span></span></span><a class="reference internal" href="_modules/fs_booking.html#build_sidebar"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.build_sidebar" title="Link to this definition">¶</a></dt>
+<dd><p>Строит боковую панель с кнопками навигации.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.build_topbar">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">build_topbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fs_booking.MainWindow" title="fs_booking.MainWindow"><span class="pre">MainWindow</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QHBoxLayout</span></span></span><a class="reference internal" href="_modules/fs_booking.html#build_topbar"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.build_topbar" title="Link to this definition">¶</a></dt>
+<dd><p>Строит верхнюю панель с кнопкой „Назад“ и заголовком экрана.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.calculate_booking_price">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">calculate_booking_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price_per_hour</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Decimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equipment_daily_prices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Decimal</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Decimal</span></span></span><a class="reference internal" href="_modules/fs_booking.html#calculate_booking_price"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.calculate_booking_price" title="Link to this definition">¶</a></dt>
+<dd><p>Рассчитывает стоимость бронирования.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> – начало брони.</p></li>
+<li><p><strong>end</strong> – конец брони.</p></li>
+<li><p><strong>price_per_hour</strong> – цена зала за час.</p></li>
+<li><p><strong>equipment_daily_prices</strong> – суточные цены оборудования.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Decimal с округлением до 2 знаков.</p>
+</dd>
+<dt class="field-odd">Исключение<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#fs_booking.InvalidBookingPeriodError" title="fs_booking.InvalidBookingPeriodError"><strong>InvalidBookingPeriodError</strong></a> – если end &lt;= start.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.get_session">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">get_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#get_session"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.get_session" title="Link to this definition">¶</a></dt>
+<dd><p>Возвращает новую сессию SQLAlchemy.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.hash_password">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/fs_booking.html#hash_password"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.hash_password" title="Link to this definition">¶</a></dt>
+<dd><p>Хеширует пароль через PBKDF2-HMAC-SHA256.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> – пароль в открытом виде.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Строка формата „&lt;salt_hex&gt;$&lt;hash_hex&gt;“.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.main">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#main"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.main" title="Link to this definition">¶</a></dt>
+<dd><p>Инициализирует БД и запускает приложение.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.make_button">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">make_button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">danger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QPushButton</span></span></span><a class="reference internal" href="_modules/fs_booking.html#make_button"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.make_button" title="Link to this definition">¶</a></dt>
+<dd><p>Создаёт стилизованную кнопку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.make_table">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">make_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QTableWidget</span></span></span><a class="reference internal" href="_modules/fs_booking.html#make_table"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.make_table" title="Link to this definition">¶</a></dt>
+<dd><p>Создаёт QTableWidget с заголовками, без вертикальных номеров строк.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.normalize_phone">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">normalize_phone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/fs_booking.html#normalize_phone"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.normalize_phone" title="Link to this definition">¶</a></dt>
+<dd><p>Приводит телефон к единому формату +7XXXXXXXXXX.</p>
+<dl class="simple">
+<dt>Допускаются только два формата на входе:</dt><dd><p>+79911148234
+89911148235</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw</strong> – строка с телефоном от пользователя.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Телефон в виде „+7XXXXXXXXXX“.</p>
+</dd>
+<dt class="field-odd">Исключение<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#fs_booking.ValidationError" title="fs_booking.ValidationError"><strong>ValidationError</strong></a> – если формат не подходит.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.seed_database">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">seed_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fs_booking.html#seed_database"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.seed_database" title="Link to this definition">¶</a></dt>
+<dd><p>Заполняет БД начальными ролями, статусами, залами и пользователями.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fs_booking.verify_password">
+<span class="sig-prename descclassname"><span class="pre">fs_booking.</span></span><span class="sig-name descname"><span class="pre">verify_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stored</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/fs_booking.html#verify_password"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#fs_booking.verify_password" title="Link to this definition">¶</a></dt>
+<dd><p>Проверяет пароль против сохранённого хеша.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> – введённый пароль.</p></li>
+<li><p><strong>stored</strong> – строка из БД формата „&lt;salt_hex&gt;$&lt;hash_hex&gt;“.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True, если пароль совпадает.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Fs_Booking</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Архитектура приложения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html">Руководство пользователя</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_manual.html">Руководство разработчика</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API-документация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.AdminProfileView"><code class="docutils literal notranslate"><span class="pre">AdminProfileView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.BookingDialog"><code class="docutils literal notranslate"><span class="pre">BookingDialog</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.BookingEquipmentORM"><code class="docutils literal notranslate"><span class="pre">BookingEquipmentORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.BookingORM"><code class="docutils literal notranslate"><span class="pre">BookingORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.BookingRepository"><code class="docutils literal notranslate"><span class="pre">BookingRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.BookingView"><code class="docutils literal notranslate"><span class="pre">BookingView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.CalendarView"><code class="docutils literal notranslate"><span class="pre">CalendarView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ClientORM"><code class="docutils literal notranslate"><span class="pre">ClientORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ClientProfileView"><code class="docutils literal notranslate"><span class="pre">ClientProfileView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ClientRepository"><code class="docutils literal notranslate"><span class="pre">ClientRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ClientsView"><code class="docutils literal notranslate"><span class="pre">ClientsView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.DomainError"><code class="docutils literal notranslate"><span class="pre">DomainError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.EquipmentORM"><code class="docutils literal notranslate"><span class="pre">EquipmentORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.EquipmentRepository"><code class="docutils literal notranslate"><span class="pre">EquipmentRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ForgotView"><code class="docutils literal notranslate"><span class="pre">ForgotView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.HallORM"><code class="docutils literal notranslate"><span class="pre">HallORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.HallRepository"><code class="docutils literal notranslate"><span class="pre">HallRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.InvalidBookingPeriodError"><code class="docutils literal notranslate"><span class="pre">InvalidBookingPeriodError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.LoginView"><code class="docutils literal notranslate"><span class="pre">LoginView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.MainWindow"><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.PaymentORM"><code class="docutils literal notranslate"><span class="pre">PaymentORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ReferenceView"><code class="docutils literal notranslate"><span class="pre">ReferenceView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ReferencesHubView"><code class="docutils literal notranslate"><span class="pre">ReferencesHubView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.RegisterView"><code class="docutils literal notranslate"><span class="pre">RegisterView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ReportsView"><code class="docutils literal notranslate"><span class="pre">ReportsView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.RoleORM"><code class="docutils literal notranslate"><span class="pre">RoleORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.StatusORM"><code class="docutils literal notranslate"><span class="pre">StatusORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.StatusRepository"><code class="docutils literal notranslate"><span class="pre">StatusRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.TaskORM"><code class="docutils literal notranslate"><span class="pre">TaskORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.TaskRepository"><code class="docutils literal notranslate"><span class="pre">TaskRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.UserORM"><code class="docutils literal notranslate"><span class="pre">UserORM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.UserRepository"><code class="docutils literal notranslate"><span class="pre">UserRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.ValidationError"><code class="docutils literal notranslate"><span class="pre">ValidationError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.build_header"><code class="docutils literal notranslate"><span class="pre">build_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.build_sidebar"><code class="docutils literal notranslate"><span class="pre">build_sidebar()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.build_topbar"><code class="docutils literal notranslate"><span class="pre">build_topbar()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.calculate_booking_price"><code class="docutils literal notranslate"><span class="pre">calculate_booking_price()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.get_session"><code class="docutils literal notranslate"><span class="pre">get_session()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.hash_password"><code class="docutils literal notranslate"><span class="pre">hash_password()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.make_button"><code class="docutils literal notranslate"><span class="pre">make_button()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.make_table"><code class="docutils literal notranslate"><span class="pre">make_table()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.normalize_phone"><code class="docutils literal notranslate"><span class="pre">normalize_phone()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.seed_database"><code class="docutils literal notranslate"><span class="pre">seed_database()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fs_booking.verify_password"><code class="docutils literal notranslate"><span class="pre">verify_password()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="developer_manual.html" title="предыдущая глава">Руководство разработчика</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Niele.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
