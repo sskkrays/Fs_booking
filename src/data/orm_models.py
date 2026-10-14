@@ -30,6 +30,9 @@ class UserORM(Base):
     login = Column(String(50), unique=True, nullable=False)
     password_hash = Column(String(255), nullable=False)
     full_name = Column(String(150), nullable=False)
+    phone = Column(String(20))
+    email = Column(String(100), nullable=True)
+    reset_code = Column(String(10), nullable=True)
     role = relationship("RoleORM")
 
 
@@ -71,6 +74,9 @@ class BookingORM(Base):
     end_datetime = Column(DateTime, nullable=False)
     status_id = Column(Integer, ForeignKey("status.status_id"), nullable=False)
     total_price = Column(Numeric(10, 2), nullable=False)
+    payment_due = Column(DateTime, nullable=True)   # дедлайн предоплаты
+    prepayment = Column(Numeric(10, 2), default=0)  # внесённая предоплата
+    photo_url = Column(String(500), nullable=True)
     client = relationship("ClientORM")
     hall = relationship("HallORM")
     status = relationship("StatusORM")

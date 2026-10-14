@@ -33,7 +33,6 @@ class MainWindow(QMainWindow):
         self.resize(1150, 720)
         self.setStyleSheet(APP_STYLE)
 
-        # Репозитории
         self.user_repo = UserRepository()
         self.client_repo = ClientRepository()
         self.hall_repo = HallRepository()
@@ -46,7 +45,6 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.setCentralWidget(self.stack)
 
-        # Экраны
         self.login_view = LoginView(self)
         self.register_view = RegisterView(self)
         self.forgot_view = ForgotView(self)
@@ -68,22 +66,16 @@ class MainWindow(QMainWindow):
 
         self.show_login()
 
-    # ---------- Навигация ----------
-
     def show_login(self):
-        """Показывает экран входа."""
         self.stack.setCurrentWidget(self.login_view)
 
     def show_register(self):
-        """Показывает экран регистрации."""
         self.stack.setCurrentWidget(self.register_view)
 
     def show_forgot(self):
-        """Показывает экран восстановления пароля."""
         self.stack.setCurrentWidget(self.forgot_view)
 
     def show_dashboard(self):
-        """Открывает дашборд в зависимости от роли пользователя."""
         role = self.current_user.role.name.lower() if self.current_user else ""
         if "админ" in role or "admin" in role:
             self.stack.setCurrentWidget(self.admin_profile_view)
@@ -91,20 +83,14 @@ class MainWindow(QMainWindow):
             self.stack.setCurrentWidget(self.client_profile_view)
 
     def show_view(self, view):
-        """Переключает активный экран."""
         self.stack.setCurrentWidget(view)
 
     def logout(self):
-        """Выходит из системы и возвращает на экран входа."""
         self.current_user = None
         self.show_login()
 
-    # ---------- Сообщения ----------
-
     def show_error(self, text):
-        """Показывает диалог ошибки."""
         QMessageBox.warning(self, "Ошибка", text)
 
     def show_info(self, text):
-        """Показывает диалог с информацией."""
         QMessageBox.information(self, "Информация", text)

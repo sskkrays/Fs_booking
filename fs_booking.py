@@ -1522,7 +1522,7 @@ class CalendarView(QWidget):
         root.addLayout(top)
 
         self.table = make_table(["Зал", "Начало", "Окончание", "Клиент", "Статус"])
-        root.addWidget(self.table)
+        root.addWidget(self.table, stretch=1)
 
     def refresh(self):
         day = self.date_edit.dateTime().toPyDateTime()
@@ -1676,7 +1676,7 @@ class BookingView(QWidget):
         self.table = make_table(
             ["ID", "Клиент", "Зал", "Начало", "Окончание", "Статус", "Сумма"]
         )
-        root.addWidget(self.table)
+        root.addWidget(self.table, stretch=1)
 
     def refresh(self):
         """Обновляет список броней — все для админа, только свои для клиента."""
@@ -1781,7 +1781,7 @@ class ClientsView(QWidget):
         root.addLayout(top)
 
         self.table = make_table(["ID", "Имя", "Телефон", "Email", "Заметки"])
-        root.addWidget(self.table)
+        root.addWidget(self.table, stretch=1)
 
     def refresh(self):
         clients = self.main.client_repo.list_all(search=self.search.text().strip())
@@ -1841,7 +1841,7 @@ class ReportsView(QWidget):
 
         root.addWidget(QLabel("Выручка по залам:"))
         self.table = make_table(["Зал", "Выручка"])
-        root.addWidget(self.table)
+        root.addWidget(self.table, stretch=1)
 
         root.addWidget(make_button("Обновить", self.refresh, accent=True),
                        alignment=Qt.AlignLeft)
@@ -1979,7 +1979,7 @@ class ReferenceView(QWidget):
         root.addLayout(actions)
 
         self.table = make_table(headers)
-        root.addWidget(self.table)
+        root.addWidget(self.table, stretch=1)
 
     def refresh(self):
         rows = self.loader()

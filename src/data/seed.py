@@ -84,12 +84,14 @@ def seed_database() -> None:
                     login="admin",
                     password_hash=hash_password("admin123"),
                     full_name="Администратор Системы",
+                    phone="+79919876056",
                 ),
                 UserORM(
                     role_id=client_role.role_id,
                     login="client",
                     password_hash=hash_password("client123"),
                     full_name="Иван Иванов",
+                    phone="+79911148234",
                 ),
             ])
             s.commit()

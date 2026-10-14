@@ -22,7 +22,58 @@ from src.data.orm_models import (
 class ClientRepository:
     """CRUD-операции для клиентов."""
 
-    def create(self, name, phone, email, notes="") -> ClientORM:
+    def auto_update_statuses(self) -> None:
+        """
+        Автоматически обновляет статусы:
+        - Новая → Отменена, если прошло 15 минут без предоплаты.
+        - Подтверждена → Не явился, если бронь завершилась (время окончания прошло).
+        """
+        from datetime import datetime, timedelta
+        from src.data.orm_models import StatusORM
+
+        now = datetime.now()
+
+        with get_session() as s:
+            # Находим статусы
+            status_new = s.scalar(select(StatusORM).where(StatusORM.name == "Новая"))
+            status_confirmed = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Подтверждена")
+            )
+            status_cancelled = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Отменена")
+            )
+            status_no_show = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Не явился")
+            )
+
+            # 1. Новая → Отменена через 15 минут
+            if status_new and status_cancelled:
+                bookings_new = list(
+                    s.scalars(
+                        select(BookingORM).where(BookingORM.status_id == status_new.status_id)
+                    ).all()
+                )
+                for b in bookings_new:
+                    # Если прошло больше 15 минут с создания
+                    if b.payment_due is not None and b.payment_due < now:
+                        b.status_id = status_cancelled.status_id
+
+            # 2. Подтверждена → Не явился, если бронь завершилась
+            if status_confirmed and status_no_show:
+                bookings_confirmed = list(
+                    s.scalars(
+                        select(BookingORM).where(
+                            BookingORM.status_id == status_confirmed.status_id
+                        )
+                    ).all()
+                )
+                for b in bookings_confirmed:
+                    if b.end_datetime < now:
+                        b.status_id = status_no_show.status_id
+
+            s.commit()
+
+    def create(self, name="", phone="", email="", notes="") -> ClientORM:
         """Создаёт нового клиента."""
         with get_session() as s:
             obj = ClientORM(name=name, phone=phone, email=email, notes=notes)
@@ -30,6 +81,80 @@ class ClientRepository:
             s.commit()
             s.refresh(obj)
             return obj
+
+    def confirm_prepayment(self, booking_id: int) -> bool:
+        """Подтверждает бронь — вносит предоплату 15%."""
+        from decimal import Decimal
+        from src.data.orm_models import StatusORM
+
+        with get_session() as s:
+            obj = s.get(BookingORM, booking_id)
+            if not obj:
+                return False
+
+            status = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Подтверждена")
+            )
+            if status:
+                obj.status_id = status.status_id
+
+            # Предоплата 15%
+            obj.prepayment = (Decimal(obj.total_price) * Decimal("0.15")).quantize(
+                Decimal("0.01")
+            )
+            s.commit()
+            return True
+
+    def complete_booking(self, booking_id: int) -> bool:
+        """Завершает бронь — клиент оплатил остаток."""
+        from src.data.orm_models import StatusORM
+
+        with get_session() as s:
+            obj = s.get(BookingORM, booking_id)
+            if not obj:
+                return False
+            status = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Завершена")
+            )
+            if status:
+                obj.status_id = status.status_id
+                s.commit()
+                return True
+            return False
+
+    def mark_no_show(self, booking_id: int) -> bool:
+        """Помечает бронь как 'Не явился'."""
+        from src.data.orm_models import StatusORM
+
+        with get_session() as s:
+            obj = s.get(BookingORM, booking_id)
+            if not obj:
+                return False
+            status = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Не явился")
+            )
+            if status:
+                obj.status_id = status.status_id
+                s.commit()
+                return True
+            return False
+
+    def cancel_booking(self, booking_id: int) -> bool:
+        """Отменяет бронь."""
+        from src.data.orm_models import StatusORM
+
+        with get_session() as s:
+            obj = s.get(BookingORM, booking_id)
+            if not obj:
+                return False
+            status = s.scalar(
+                select(StatusORM).where(StatusORM.name == "Отменена")
+            )
+            if status:
+                obj.status_id = status.status_id
+                s.commit()
+                return True
+            return False
 
     def list_all(self, search="") -> list[ClientORM]:
         """Возвращает список клиентов с фильтром по имени."""
