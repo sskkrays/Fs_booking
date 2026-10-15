@@ -26,17 +26,18 @@ from src.data.orm_models import (
     HallORM,
     UserORM,
 )
-from src.ui.widgets.common import build_sidebar, build_header, make_button, make_table
+from src.ui.widgets.common import build_sidebar, make_button, make_table
 
 
 class ReferencesHubView(QWidget):
-    """Объединённый справочник с вкладками."""
+    """Объединённый справочник с 4 вкладками."""
 
     def __init__(self, main):
         super().__init__()
         self.main = main
         self.current_tab = "halls"
         self._build()
+        self._switch_tab("halls")
 
     def _build(self):
         root = QHBoxLayout(self)
@@ -76,12 +77,10 @@ class ReferencesHubView(QWidget):
 
         tabs_row.addStretch()
 
-        # Кнопка «+ Добавить ...»
         self.add_btn = QPushButton("+ Добавить")
         self.add_btn.setStyleSheet(
             "QPushButton { background-color:#FDF6E3; color:#2B2B2B; "
             "border:1px solid #C8D4DA; border-radius:14px; padding:6px 14px; }"
-            "QPushButton:hover { background-color:#E8D9B8; }"
         )
         self.add_btn.clicked.connect(self._on_add_click)
         tabs_row.addWidget(self.add_btn)
@@ -105,9 +104,7 @@ class ReferencesHubView(QWidget):
         container.setLayout(body)
         root.addWidget(container, stretch=1)
 
-        self._switch_tab("halls")
-
-    # ---------- Создание страниц ----------
+    # ---------- Страницы ----------
 
     def _make_halls_page(self):
         page = QWidget()
@@ -128,7 +125,7 @@ class ReferencesHubView(QWidget):
             ["ID", "Название", "Категория", "Цена/день", "Доступно", "Действия"]
         )
         self.equipment_table.setColumnWidth(5, 240)
-        layout.addWidget(self.halls_table, stretch=1)
+        layout.addWidget(self.equipment_table, stretch=1)
         return page
 
     def _make_statuses_page(self):
@@ -139,7 +136,7 @@ class ReferencesHubView(QWidget):
             ["ID", "Зал", "Тип", "Тек. статус", "Дата", "Действия"]
         )
         self.statuses_table.setColumnWidth(5, 240)
-        layout.addWidget(self.halls_table, stretch=1)
+        layout.addWidget(self.statuses_table, stretch=1)
         return page
 
     def _make_users_page(self):
@@ -150,7 +147,7 @@ class ReferencesHubView(QWidget):
             ["ID", "ФИО", "Логин", "Роль", "Действия"]
         )
         self.users_table.setColumnWidth(4, 240)
-        layout.addWidget(self.halls_table, stretch=1)
+        layout.addWidget(self.users_table, stretch=1)
         return page
 
     # ---------- Переключение вкладок ----------
@@ -177,12 +174,9 @@ class ReferencesHubView(QWidget):
                 btn.setStyleSheet(
                     "QPushButton { background-color:#FDF6E3; color:#2B2B2B; "
                     "border:1px solid #C8D4DA; border-radius:14px; padding:6px 14px; }"
-                    "QPushButton:hover { background-color:#E8D9B8; }"
                 )
 
         self._refresh_current_tab()
-
-    # ---------- Обновление таблиц ----------
 
     def _refresh_current_tab(self):
         if self.current_tab == "halls":
@@ -193,6 +187,8 @@ class ReferencesHubView(QWidget):
             self._refresh_statuses()
         elif self.current_tab == "users":
             self._refresh_users()
+
+    # ---------- Заполнение ----------
 
     def _refresh_halls(self):
         rows = self.main.hall_repo.list_all()
@@ -208,12 +204,9 @@ class ReferencesHubView(QWidget):
             ]
             for j, v in enumerate(values):
                 self.halls_table.setItem(i, j, QTableWidgetItem(v))
-
             self.halls_table.setCellWidget(
                 i, 5, self._make_action_buttons(
-                    h.hall_id,
-                    on_edit=self._edit_hall,
-                    on_delete=self._delete_hall,
+                    h.hall_id, self._edit_hall, self._delete_hall
                 )
             )
 
@@ -231,12 +224,9 @@ class ReferencesHubView(QWidget):
             ]
             for j, v in enumerate(values):
                 self.equipment_table.setItem(i, j, QTableWidgetItem(v))
-
             self.equipment_table.setCellWidget(
                 i, 5, self._make_action_buttons(
-                    e.equipment_id,
-                    on_edit=self._edit_equipment,
-                    on_delete=self._delete_equipment,
+                    e.equipment_id, self._edit_equipment, self._delete_equipment
                 )
             )
 
@@ -253,12 +243,9 @@ class ReferencesHubView(QWidget):
             ]
             for j, v in enumerate(values):
                 self.statuses_table.setItem(i, j, QTableWidgetItem(v))
-
             self.statuses_table.setCellWidget(
                 i, 5, self._make_action_buttons(
-                    b.booking_id,
-                    on_edit=self._edit_status,
-                    on_delete=self._delete_status,
+                    b.booking_id, self._edit_status, self._delete_status
                 )
             )
 
@@ -274,50 +261,32 @@ class ReferencesHubView(QWidget):
             ]
             for j, v in enumerate(values):
                 self.users_table.setItem(i, j, QTableWidgetItem(v))
-
             self.users_table.setCellWidget(
                 i, 4, self._make_action_buttons(
-                    u.user_id,
-                    on_edit=self._edit_user,
-                    on_delete=self._delete_user,
+                    u.user_id, self._edit_user, self._delete_user
                 )
             )
 
     def _make_action_buttons(self, obj_id, on_edit, on_delete):
-        """Создаёт виджет с двумя кнопками: Изменить и Удалить."""
         widget = QWidget()
         layout = QHBoxLayout(widget)
         layout.setContentsMargins(2, 2, 2, 2)
         layout.setSpacing(4)
 
         edit_btn = QPushButton("Изменить")
-        edit_btn.setFixedSize(110, 28)
+        edit_btn.setFixedSize(100, 28)
         edit_btn.setStyleSheet(
-            "QPushButton {"
-            "  background-color: #B7C9D3;"
-            "  color: #2B2B2B;"
-            "  border: 1px solid #8FA8B5;"
-            "  border-radius: 4px;"
-            "  font-size: 10pt;"
-            "  padding: 0;"
-            "}"
-            "QPushButton:hover { background-color: #A5B8C2; }"
+            "QPushButton { background-color:#B7C9D3; color:#2B2B2B; "
+            "border:1px solid #8FA8B5; border-radius:4px; font-size:9pt; }"
         )
         edit_btn.clicked.connect(lambda _, oid=obj_id: on_edit(oid))
         layout.addWidget(edit_btn)
 
         del_btn = QPushButton("Удалить")
-        del_btn.setFixedSize(110, 28)
+        del_btn.setFixedSize(100, 28)
         del_btn.setStyleSheet(
-            "QPushButton {"
-            "  background-color: #C97B7B;"
-            "  color: white;"
-            "  border: none;"
-            "  border-radius: 4px;"
-            "  font-size: 10pt;"
-            "  padding: 0;"
-            "}"
-            "QPushButton:hover { background-color: #A85F5F; }"
+            "QPushButton { background-color:#C97B7B; color:white; "
+            "border:none; border-radius:4px; font-size:9pt; }"
         )
         del_btn.clicked.connect(lambda _, oid=obj_id: on_delete(oid))
         layout.addWidget(del_btn)
@@ -331,10 +300,8 @@ class ReferencesHubView(QWidget):
             self._add_hall()
         elif self.current_tab == "equipment":
             self._add_equipment()
-        elif self.current_tab == "statuses":
-            self.main.show_info("Смена статуса — через экран 'Брони'.")
-        elif self.current_tab == "users":
-            self.main.show_info("Регистрация — на экране входа.")
+        else:
+            self.main.show_info("Добавление через соответствующий раздел.")
 
     def _add_hall(self):
         dlg = QDialog(self)
@@ -383,138 +350,111 @@ class ReferencesHubView(QWidget):
                 self.main.show_error(f"Ошибка: {e}")
 
     def _edit_hall(self, hall_id):
-        hall = None
         for h in self.main.hall_repo.list_all():
             if h.hall_id == hall_id:
-                hall = h
-                break
-        if not hall:
-            return
-        dlg = QDialog(self)
-        dlg.setWindowTitle(f"Зал #{hall_id}")
-        form = QFormLayout(dlg)
-        name = QLineEdit(hall.name)
-        desc = QLineEdit(hall.description or "")
-        price = QLineEdit(str(hall.price_per_hour))
-        form.addRow("Название:", name)
-        form.addRow("Описание:", desc)
-        form.addRow("Цена/час:", price)
-        bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        bb.accepted.connect(dlg.accept)
-        bb.rejected.connect(dlg.reject)
-        form.addRow(bb)
-        if dlg.exec_() == QDialog.Accepted:
-            with get_session() as s:
-                obj = s.get(HallORM, hall_id)
-                if obj:
-                    obj.name = name.text().strip() or obj.name
-                    obj.description = desc.text()
-                    obj.price_per_hour = Decimal(price.text() or "0")
-                    s.commit()
-            self._refresh_halls()
+                dlg = QDialog(self)
+                dlg.setWindowTitle(f"Зал #{hall_id}")
+                form = QFormLayout(dlg)
+                name = QLineEdit(h.name)
+                desc = QLineEdit(h.description or "")
+                price = QLineEdit(str(h.price_per_hour))
+                form.addRow("Название:", name)
+                form.addRow("Описание:", desc)
+                form.addRow("Цена/час:", price)
+                bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+                bb.accepted.connect(dlg.accept)
+                bb.rejected.connect(dlg.reject)
+                form.addRow(bb)
+                if dlg.exec_() == QDialog.Accepted:
+                    with get_session() as s:
+                        obj = s.get(HallORM, hall_id)
+                        if obj:
+                            obj.name = name.text().strip() or obj.name
+                            obj.description = desc.text()
+                            obj.price_per_hour = Decimal(price.text() or "0")
+                            s.commit()
+                    self._refresh_halls()
+                return
 
     def _edit_equipment(self, equipment_id):
-        eq = None
         for e in self.main.equipment_repo.list_all():
             if e.equipment_id == equipment_id:
-                eq = e
-                break
-        if not eq:
-            return
-        dlg = QDialog(self)
-        dlg.setWindowTitle(f"Оборудование #{equipment_id}")
-        form = QFormLayout(dlg)
-        name = QLineEdit(eq.name)
-        cat = QLineEdit(eq.category or "")
-        price = QLineEdit(str(eq.price_per_day))
-        available = QComboBox()
-        available.addItem("Активен", True)
-        available.addItem("Не активен", False)
-        available.setCurrentIndex(0 if eq.is_available else 1)
-        form.addRow("Название:", name)
-        form.addRow("Категория:", cat)
-        form.addRow("Цена/день:", price)
-        form.addRow("Доступно:", available)
-        bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        bb.accepted.connect(dlg.accept)
-        bb.rejected.connect(dlg.reject)
-        form.addRow(bb)
-        if dlg.exec_() == QDialog.Accepted:
-            with get_session() as s:
-                obj = s.get(EquipmentORM, equipment_id)
-                if obj:
-                    obj.name = name.text().strip() or obj.name
-                    obj.category = cat.text()
-                    obj.price_per_day = Decimal(price.text() or "0")
-                    obj.is_available = available.currentData()
-                    s.commit()
-            self._refresh_equipment()
+                dlg = QDialog(self)
+                dlg.setWindowTitle(f"Оборудование #{equipment_id}")
+                form = QFormLayout(dlg)
+                name = QLineEdit(e.name)
+                cat = QLineEdit(e.category or "")
+                price = QLineEdit(str(e.price_per_day))
+                avail = QComboBox()
+                avail.addItem("Активен", True)
+                avail.addItem("Не активен", False)
+                avail.setCurrentIndex(0 if e.is_available else 1)
+                form.addRow("Название:", name)
+                form.addRow("Категория:", cat)
+                form.addRow("Цена/день:", price)
+                form.addRow("Доступно:", avail)
+                bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+                bb.accepted.connect(dlg.accept)
+                bb.rejected.connect(dlg.reject)
+                form.addRow(bb)
+                if dlg.exec_() == QDialog.Accepted:
+                    with get_session() as s:
+                        obj = s.get(EquipmentORM, equipment_id)
+                        if obj:
+                            obj.name = name.text().strip() or obj.name
+                            obj.category = cat.text()
+                            obj.price_per_day = Decimal(price.text() or "0")
+                            obj.is_available = avail.currentData()
+                            s.commit()
+                    self._refresh_equipment()
+                return
 
     def _edit_status(self, booking_id):
-        """Изменение статуса и ссылки на фото."""
-        with get_session() as s:
-            booking = s.get(BookingORM, booking_id)
-            if not booking:
-                return
-            current_url = getattr(booking, "photo_url", "") or ""
-
         statuses = self.main.status_repo.list_all()
-        if not statuses:
-            self.main.show_error("Нет доступных статусов.")
-            return
-
         dlg = QDialog(self)
-        dlg.setWindowTitle(f"Редактирование брони #{booking_id}")
-        dlg.setMinimumWidth(420)
+        dlg.setWindowTitle(f"Статус брони #{booking_id}")
         form = QFormLayout(dlg)
-
         combo = QComboBox()
         for st in statuses:
             combo.addItem(st.name, st.status_id)
-        form.addRow("Статус:", combo)
-
-        url_input = QLineEdit(current_url)
-        url_input.setPlaceholderText("https://drive.google.com/...")
-        form.addRow("Ссылка на фото:", url_input)
-
+        form.addRow("Новый статус:", combo)
+        url = QLineEdit()
+        url.setPlaceholderText("Ссылка на фото (необязательно)")
+        form.addRow("Фото:", url)
         bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         bb.accepted.connect(dlg.accept)
         bb.rejected.connect(dlg.reject)
         form.addRow(bb)
-
         if dlg.exec_() == QDialog.Accepted:
             with get_session() as s:
                 obj = s.get(BookingORM, booking_id)
                 if obj:
                     obj.status_id = combo.currentData()
-                    obj.photo_url = url_input.text().strip() or None
+                    if url.text().strip():
+                        obj.photo_url = url.text().strip()
                     s.commit()
             self._refresh_statuses()
 
     def _edit_user(self, user_id):
-        user = None
         for u in self.main.user_repo.list_all():
             if u.user_id == user_id:
-                user = u
-                break
-        if not user:
-            return
-        dlg = QDialog(self)
-        dlg.setWindowTitle(f"Пользователь #{user_id}")
-        form = QFormLayout(dlg)
-        full_name = QLineEdit(user.full_name or "")
-        form.addRow("ФИО:", full_name)
-        bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
-        bb.accepted.connect(dlg.accept)
-        bb.rejected.connect(dlg.reject)
-        form.addRow(bb)
-        if dlg.exec_() == QDialog.Accepted:
-            with get_session() as s:
-                obj = s.get(UserORM, user_id)
-                if obj:
-                    obj.full_name = full_name.text().strip() or obj.full_name
-                    s.commit()
-            self._refresh_users()
+                dlg = QDialog(self)
+                dlg.setWindowTitle(f"Пользователь #{user_id}")
+                form = QFormLayout(dlg)
+                full_name = QLineEdit(u.full_name or "")
+                form.addRow("ФИО:", full_name)
+                bb = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+                bb.accepted.connect(dlg.accept)
+                bb.rejected.connect(dlg.reject)
+                form.addRow(bb)
+                if dlg.exec_() == QDialog.Accepted:
+                    with get_session() as s:
+                        obj = s.get(UserORM, user_id)
+                        if obj:
+                            obj.full_name = full_name.text().strip() or obj.full_name
+                            s.commit()
+                    self._refresh_users()
+                return
 
     def _delete_hall(self, hall_id):
         if self.main.hall_repo.delete(hall_id):
